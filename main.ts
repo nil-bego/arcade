@@ -1,3 +1,8 @@
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.doorClosedSouth, function (sprite, location) {
+	
+})
+info.setScore(0)
+info.setLife(3)
 let mySprite = sprites.create(img`
     . . . . . . f f f f . . . . . . 
     . . . . f f f 2 2 f f f . . . . 
@@ -16,8 +21,11 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+tiles.placeOnTile(mySprite, tiles.getTileLocation(16, 15))
 controller.moveSprite(mySprite, 100, 100)
-scene.cameraFollowSprite(mySprite)
+mySprite.setKind(SpriteKind.Player)
+mySprite.setPosition(148, 108)
 tiles.placeOnRandomTile(mySprite, myTiles.tile1)
+scene.cameraFollowSprite(mySprite)
 tiles.setTilemap(tilemap`level`)
 scene.setBackgroundColor(11)
